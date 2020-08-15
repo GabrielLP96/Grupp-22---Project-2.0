@@ -43,6 +43,7 @@ namespace DataLayer
                 conn.Close();
             }
             Database.Initialize(true);
+            
         }
     }
 }
