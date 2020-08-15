@@ -7,7 +7,13 @@ using BusinessEntity.ClassModels;
 
 namespace DataLayer
 {
-    class Preintputs
+    public class Preintputs
     {
+        public void add()
+        {
+           
+
+
+        }
     }
 }
