@@ -44,11 +44,13 @@
     <Compile Include="ClassModels\Activity.cs" />
     <Compile Include="ClassModels\Alumnus.cs" />
     <Compile Include="ClassModels\Employee.cs" />
+    <Compile Include="CM-Interfaces\ISendList.cs" />
+    <Compile Include="CM-Interfaces\IEmployee.cs" />
+    <Compile Include="CM-Interfaces\IAlumnus.cs" />
+    <Compile Include="CM-Interfaces\IActivity.cs" />
     <Compile Include="ClassModels\SendList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CM-Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

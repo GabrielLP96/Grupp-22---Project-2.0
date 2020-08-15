@@ -52,8 +52,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Preintputs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ActivityRepository.cs" />
+    <Compile Include="Repositories\AlumnusRepository.cs" />
+    <Compile Include="InterfaceRepositories\IRepository.cs" />
+    <Compile Include="InterfaceRepositories\IAlumnusRepository.cs" />
+    <Compile Include="InterfaceRepositories\IActivityRepository.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="InterfaceRepositories\IEmployeeRepository.cs" />
+    <Compile Include="InterfaceRepositories\ISendListRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\SendListRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntity\BusinessEntity.csproj">

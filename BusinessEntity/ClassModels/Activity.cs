@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessEntity.ClassModels
 {
-    public class Activity
+    public class Activity : IActivity
     {
         public int ActivityID { get; set; }
         public string Event { get; set; }
@@ -14,7 +14,7 @@ namespace BusinessEntity.ClassModels
         public string Category { get; set; }
         public Employee Employee { get; set; }
 
-        public ICollection<Alumnus> Alumni { get; set; }
+        public ICollection<Alumnus> Alumnuses { get; set; }
 
         private DateTime date;
 

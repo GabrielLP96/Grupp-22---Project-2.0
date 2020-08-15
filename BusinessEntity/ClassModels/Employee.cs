@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace BusinessEntity.ClassModels
 {
-    public class Employee
+    public class Employee : IEmployee
     {
         public int ID { get; set; }
-        public string Name { get; set; }
+        public string Fname { get; set; }
+        public string Lname { get; set; }
 
         public string PersonCode { get; set; }
 
