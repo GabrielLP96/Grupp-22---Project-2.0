@@ -23,7 +23,7 @@ namespace DataLayer.Repositories
         }
         public Alumnus GetAlumnusActivity(int AlumnusId)
         {
-            return DataContext.Alumnuses.Include(x => x.Activities).Where(x => x.Id == AlumnusId).FirstOrDefault();
+            return DataContext.Alumnuses.Include(x => x.Activities).Where(x => x.ID == AlumnusId).FirstOrDefault();
         }
         public List<Alumnus> GetAllAlumnusActivity()
         {
