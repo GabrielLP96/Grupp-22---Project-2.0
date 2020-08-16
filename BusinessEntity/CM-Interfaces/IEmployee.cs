@@ -5,7 +5,7 @@ namespace BusinessEntity.ClassModels
 {
     public interface IEmployee
     {
-        ICollection<Activity> activities { get; set; }
+        ICollection<Activity> Activities { get; set; }
         string Email { get; set; }
         DateTime EmployeerDate { get; set; }
         string Fname { get; set; }
@@ -14,6 +14,6 @@ namespace BusinessEntity.ClassModels
         string Password { get; set; }
         string PersonCode { get; set; }
         int PhoneNumber { get; set; }
-        ICollection<SendList> sendLists { get; set; }
+        ICollection<SendList> SendLists { get; set; }
     }
 }

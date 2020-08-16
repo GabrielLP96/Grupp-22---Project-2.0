@@ -30,6 +30,12 @@ namespace DataLayer.Repositories
             return dbContext.Set<Design>().ToList();
         }
 
+        // Add
+        public void Add(Design design)
+        {
+            dbContext.Set<Design>().Add(design);
+        }
+
         //Add or uppdate
         public void AddUppdate(Design design)
         {

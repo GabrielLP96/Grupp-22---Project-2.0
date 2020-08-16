@@ -44,6 +44,7 @@
     <Compile Include="ClassModels\Activity.cs" />
     <Compile Include="ClassModels\Alumnus.cs" />
     <Compile Include="ClassModels\Employee.cs" />
+    <Compile Include="CM-Interfaces\IPerson.cs" />
     <Compile Include="CM-Interfaces\ISendList.cs" />
     <Compile Include="CM-Interfaces\IEmployee.cs" />
     <Compile Include="CM-Interfaces\IAlumnus.cs" />

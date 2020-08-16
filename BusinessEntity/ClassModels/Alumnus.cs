@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessEntity.CM_Interfaces;
 
 namespace BusinessEntity.ClassModels
 {
-    public class Alumnus : IAlumnus
+    public class Alumnus : IAlumnus, IPerson
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Fname { get; set; }
-        public string Ename { get; set; }
+        public string Lname { get; set; }
         public string PersonCode { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Collections.Generic;
 
 namespace DataLayer.Repositories
 {
-    public interface IRepository<Design>
+    public interface IRepository<Design> where Design : class
     {
+        void Add(Design design);
         void AddMore(IEnumerable<Design> design);
         void AddUppdate(Design design);
         Design Get(int ID);
