@@ -165,8 +165,8 @@ namespace GUI
             bool Accept1 = int.TryParse(textBox5.Text, out int PhoneNumber);
             bool Accept2 = DateTime.TryParse(textBox7.Text, out DateTime ExamDate);
 
-            bool Accept3 = false;
-            bool Accept4 = false;
+           // bool Accept3 = false;
+           // bool Accept4 = false;
 
             string Password = textBox8.Text;
             string RepeatPassword = textBox9.Text;
