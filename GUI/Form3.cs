@@ -20,6 +20,7 @@ namespace GUI
         public Form3()
         {
             InitializeComponent();
+            Message();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,7 +29,7 @@ namespace GUI
         }
         private void Message()
         {
-            label3.Text = $"Welcome {BusinessManager.GetAlumnusOnline().Fname + BusinessManager.GetAlumnusOnline().Lname}";
+            label3.Text = $"Welcome {BusinessManager.GetAlumnusOnline().Fname + " " + BusinessManager.GetAlumnusOnline().Lname}";
         }
 
         private void label3_Click(object sender, EventArgs e)
