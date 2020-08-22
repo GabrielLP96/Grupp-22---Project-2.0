@@ -15,15 +15,18 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
-        BusinessManager businessManager = new BusinessManager();
 
+        BusinessManager businessManager = new BusinessManager();
+        ISubject subjectObject = new Subject();
         public Form1()
         {
             InitializeComponent();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            subjectObject.Notify(); 
             string PersonCode = textBox1.Text;
             string Password = textBox2.Text;
 
@@ -34,18 +37,16 @@ namespace GUI
             if (personOnline is Alumnus)
             {
                 textBox1.Text = string.Empty;
-                label3.Text = string.Empty;
                 new Form3().ShowDialog();
             }
             else if (personOnline is Employee)
             {
                 textBox1.Text = string.Empty;
-                label3.Text = string.Empty;
                 new Form4().ShowDialog();
             }
             else
             {
-                label3.Text = "Invalid UserName or Password";
+                MessageBox.Show("Invalid UserName or Password");
             }
 
             businessManager = new BusinessManager();

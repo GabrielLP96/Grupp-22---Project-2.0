@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessEntity.ClassModels;
+using BusinessEntity.CM_Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +18,15 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void Message()
+        {
+            label3.Text = "Welcome" +  
+        }
+
     }
 }
