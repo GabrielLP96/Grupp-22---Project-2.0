@@ -22,7 +22,8 @@ namespace GUI
 
         public Form2()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            alumnusLoggedIn();
             
         }
 
@@ -160,8 +161,11 @@ namespace GUI
             string Qualification = textBox6.Text;
             string PersonCode = textBox3.Text;
 
+            
             bool Accept1 = int.TryParse(textBox5.Text, out int PhoneNumber);
             bool Accept2 = DateTime.TryParse(textBox7.Text, out DateTime ExamDate);
+          
+          
 
             bool Accept3 = false;
             bool Accept4 = false;
@@ -178,7 +182,7 @@ namespace GUI
                 Accept4 = true;
             }
 
-            List<bool> Accepts = new List<bool> { Accept1, Accept2, Accept3, Accept4 };
+            List<bool> Accepts = new List<bool> { Accept1, Accept2, Accept3, Accept4,};
             if (!Accepts.Contains(false) && BusinessManager.GetAlumnusOnline() != null)
             {
                 IAlumnus TemporaryAlumn = new Alumnus();
