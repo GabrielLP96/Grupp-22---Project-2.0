@@ -125,9 +125,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 139);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 13);
+            this.label3.Size = new System.Drawing.Size(113, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "social security number";
+            this.label3.Text = "Social security number";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
