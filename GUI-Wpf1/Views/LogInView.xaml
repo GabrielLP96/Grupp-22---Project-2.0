@@ -1,0 +1,65 @@
+﻿<Window x:Class="GUI_Wpf1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_Wpf1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="479.564" Width="464.305">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="auto" MinHeight="70"/>
+            <RowDefinition Height="auto" MinHeight="22"/>
+            <RowDefinition Height="auto" MinHeight="31"/>
+            <RowDefinition Height="auto" MinHeight="18"/>
+            <RowDefinition Height="auto" MinHeight="32"/>
+            <RowDefinition Height="auto" MinHeight="28"/>
+            <RowDefinition Height="165*"/>
+        </Grid.RowDefinitions>
+
+        <!--Rad 1-->
+        <TextBlock Grid.Row="1" Grid.Column="2"
+                   FontSize="30"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,150,30"
+                   Text="{Binding WelcomeMessage, Mode=OneWay, StringFormat=Välkommen {0}}" Width="0"/>
+
+        <!--Rad 2-->
+        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                 Text="{Binding PersonCodeBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!--Rad 3-->
+        <TextBlock Grid.Row="3" Grid.Column="1"
+                   Margin="0, 0, 0, 15"
+                   Text="User name / Person code"/>
+
+        <!--Rad 4-->
+        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"
+                 Text="{Binding PasswordBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!--Rad 5-->
+        <TextBlock Grid.Row="5" Grid.Column="1"
+                   Margin="0, 0, 0, 15"
+                   Text="Password"/>
+
+        <!--Rad 6-->
+        <Button Grid.Row="6" Grid.Column="1" Content="Log in" 
+                Command="{Binding login}"/>
+
+        <Button Grid.Row="6" Grid.Column="2" Content="Registrera"
+                Command="{Binding Registration}"/>
+
+        <!--Rad 7-->
+        <TextBlock Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"
+                   Margin="0, 20, 0, 0"
+                   Text="{Binding ErrorMessage}"/>
+    </Grid>
+</Window>
+

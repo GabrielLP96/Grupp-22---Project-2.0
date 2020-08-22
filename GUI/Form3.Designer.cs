@@ -61,18 +61,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Available activitis";
+            this.label1.Text = "Available activities";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 320);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Booked activitis ";
+            this.label2.Text = "Booked activities ";
             // 
             // label3
             // 

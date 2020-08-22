@@ -1,0 +1,96 @@
+﻿<Window x:Class="GUI_Wpf1.Views.AlumnusView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_Wpf1.Views"
+        mc:Ignorable="d"
+        Title="AlumnusView" Height="500" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5"
+                   FontSize="30"
+                   Text="{Binding OnlineAlumnusName, StringFormat=Welcome {0}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                   Margin="0,0,0,40"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5"
+                   FontSize="25"
+                   Text="Available activities"/>
+
+        <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5"
+                  ItemsSource="{Binding AvailableActivities, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding PickedBookedActivity, Mode=OneWayToSource}"
+                  AlternatingRowBackground="AliceBlue"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Event" Binding="{Binding Event}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=yyyy-MM-dd HH:mm}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="4" Grid.Column="5" Content="Book" 
+                Command="{Binding Book}"
+                Margin="0,0,0,20"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5"
+                   FontSize="25"
+                   Text="Booked activities"/>
+
+        <DataGrid Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="5"
+                  ItemsSource="{Binding BookedActivities, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding PickedCancelActivity, Mode=OneWayToSource}"
+                  AlternatingRowBackground="AliceBlue"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Event" Binding="{Binding Event}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=yyyy-MM-dd HH:mm}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="7" Grid.Column="5" Content="Cancel" 
+                Command="{Binding Cancel}"
+                Margin="0,0,0,20"/>
+
+        <TextBlock Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="5"
+                   FontSize="25"
+                   Text="Change personal information"/>
+
+        <Button Grid.Row="9" Grid.Column="1" Content="Change" 
+                Command="{Binding Change}"
+                Margin="0,0,0,20"/>
+
+
+        <Button Grid.Row="11" Grid.Column="5" Content="Log out" 
+                Command="{Binding LogOut}"/> 
+    </Grid>
+</Window>

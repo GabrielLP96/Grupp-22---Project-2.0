@@ -1,0 +1,178 @@
+﻿<Window x:Class="GUI_Wpf1.Views.EmployeeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_Wpf1.Views"
+        mc:Ignorable="d"
+        Title="EmployeeView" Height="540" Width="540">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5"
+                   FontSize="30"
+                   Text="{Binding InloggadPersonalNamn, StringFormat=Välkommen {0}}"
+                   Margin="0,0,0,40"/>
+
+            <!--Grupp 1-->
+            <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5"
+                   FontSize="25"
+                   Text="Registerade alumner"/>
+
+            <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5"
+                  ItemsSource="{Binding RegisteradeAlumner, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding ValdAlumnGrupp1, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False"
+                  CanUserDeleteRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Namn" Binding="{Binding Namn}"/>
+                    <DataGridTextColumn Header="Personnummer" Binding="{Binding Personnummer}"/>
+                    <DataGridTextColumn Header="E-Postadress" Binding="{Binding Epostadress}"/>
+                    <DataGridTextColumn Header="Telefonnummer" Binding="{Binding Telefonnummer}"/>
+                    <DataGridTextColumn Header="Utbildning" Binding="{Binding Utbildning}"/>
+                    <DataGridTemplateColumn Header="Examensdatum">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Examensdatum, StringFormat=yyyy-MM-dd}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Examensdatum}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button Grid.Row="4" Grid.Column="2" Content="Lägg till i aktivitet" 
+                Command="{Binding LäggTillAktivitet}"/>
+
+            <Button Grid.Row="4" Grid.Column="3" Content="Lägg till i utskickslista" 
+                Command="{Binding LäggTillUtskickslista}"/>
+
+            <Button Grid.Row="4" Grid.Column="4" Content="Spara" 
+                Command="{Binding SparaValdAlumn}"/>
+
+            <Button Grid.Row="4" Grid.Column="5" Content="Radera" 
+                Command="{Binding RaderaValdAlumn}"/>
+
+            <!--Grupp 2-->
+            <TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5"
+                   FontSize="25"
+                   Text="Tillgängliga aktiviteter"
+                   Margin="0,20,0,0"/>
+
+            <DataGrid Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="5"
+                  ItemsSource="{Binding TillgängligaAktiviteter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding ValdAktivitet, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False"
+                  CanUserDeleteRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Händelse" Binding="{Binding Händelse}"/>
+                    <DataGridTextColumn Header="Adress" Binding="{Binding Adress}"/>
+                    <DataGridTextColumn Header="Kategori" Binding="{Binding Kategori}"/>
+                    <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat=yyyy-MM-dd HH:mm}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="5"
+                  ItemsSource="{Binding ValdAktivitetsAlumner, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding ValdAlumnGrupp2, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Namn" Binding="{Binding Namn}"/>
+                    <DataGridTextColumn Header="Personnummer" Binding="{Binding Personnummer}"/>
+                    <DataGridTextColumn Header="E-Postadress" Binding="{Binding Epostadress}"/>
+                    <DataGridTextColumn Header="Telefonnummer" Binding="{Binding Telefonnummer}"/>
+                    <DataGridTextColumn Header="Utbildning" Binding="{Binding Utbildning}"/>
+                    <DataGridTextColumn Header="Examensdatum" Binding="{Binding Examensdatum, StringFormat=yyyy-MM-dd}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button Grid.Row="8" Grid.Column="3" Content="Visa/Dölj anmälda" 
+                Command="{Binding VisaValdAktivitet}"/>
+
+            <Button Grid.Row="8" Grid.Column="4" Content="Spara" 
+                Command="{Binding SparaValdAktivitet}"/>
+
+            <Button Grid.Row="8" Grid.Column="5" Content="Radera" 
+                Command="{Binding RaderaValdAktivitet}"/>
+
+            <!--Grupp 3-->
+            <TextBlock Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="5"
+                   FontSize="25"
+                   Text="Utskickslistor"
+                   Margin="0,20,0,0"/>
+
+            <ComboBox Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2"
+                  ItemsSource="{Binding Utskickslistor}"
+                  SelectedItem="{Binding ValdUtskickslista}"
+                  IsReadOnly="True">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Namn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBox Grid.Row="10" Grid.Column="4"
+                   Text="{Binding UtskickslistaNamn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Button Grid.Row="10" Grid.Column="5" Content="Skapa" 
+                Command="{Binding SkapaValdUtskickslista, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <DataGrid Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="5"
+                  ItemsSource="{Binding ValdUtskickslistaAlumner, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem ="{Binding ValdAlumnGrupp3}"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Namn" Binding="{Binding Namn}"/>
+                    <DataGridTextColumn Header="Personnummer" Binding="{Binding Personnummer}"/>
+                    <DataGridTextColumn Header="E-Postadress" Binding="{Binding Epostadress}"/>
+                    <DataGridTextColumn Header="Telefonnummer" Binding="{Binding Telefonnummer}"/>
+                    <DataGridTextColumn Header="Utbildning" Binding="{Binding Utbildning}"/>
+                    <DataGridTextColumn Header="Examensdatum" Binding="{Binding Examensdatum, StringFormat=yyyy-MM-dd}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button Grid.Row="12" Grid.Column="4" Content="Ta bort Alumn"
+                Command="{Binding TabortUtskickslistaAlumn}"/>
+
+            <Button Grid.Row="12" Grid.Column="5" Content="Radera Lista" 
+                Command="{Binding RaderaValdUtskickslista}"/>
+
+            <Button Grid.Row="13" Grid.Column="5" Content="Logga ut" 
+                Command="{Binding Utloggning}"
+                Margin="0,20,0,0"/>
+        </Grid>
+    </ScrollViewer>
+</Window>

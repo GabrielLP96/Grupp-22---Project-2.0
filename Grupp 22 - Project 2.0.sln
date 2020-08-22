@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{4289C8C0-53F3-4D03-B4CF-C629967FFC6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI-Wpf1", "GUI-Wpf1\GUI-Wpf1.csproj", "{D85EF51E-58B1-46CE-B31E-320202221C40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4289C8C0-53F3-4D03-B4CF-C629967FFC6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4289C8C0-53F3-4D03-B4CF-C629967FFC6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4289C8C0-53F3-4D03-B4CF-C629967FFC6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D85EF51E-58B1-46CE-B31E-320202221C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D85EF51E-58B1-46CE-B31E-320202221C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D85EF51E-58B1-46CE-B31E-320202221C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D85EF51E-58B1-46CE-B31E-320202221C40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
