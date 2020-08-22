@@ -7,14 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessEntity.ClassModels;
+using BusinessEntity.CM_Interfaces;
+using BusinessLayer;
+
+
 
 namespace GUI
 {
     public partial class Form2 : Form
     {
+        BusinessManager BusinessManager = new BusinessManager();
+        ISubject subject = new Subject();
+
         public Form2()
         {
-            InitializeComponent();
+            InitializeComponent(); // lägg till checkboxObserver
+            
+        }
+
+        public void alumnusLoggedIn()
+        {
+            IAlumnus LoggedInAlumnus = BusinessManager.GetAlumnusOnline();
+            if (LoggedInAlumnus != null)
+            {
+                label1.Text = "Change personal info";
+                button1.Text = "Change";
+                textBox1.Text = LoggedInAlumnus.Fname;
+                textBox2.Text = LoggedInAlumnus.Lname;
+                textBox3.Text = LoggedInAlumnus.PersonCode;
+                textBox4.Text = LoggedInAlumnus.Email;
+                textBox5.Text = LoggedInAlumnus.PhoneNumber.ToString();
+                textBox6.Text = LoggedInAlumnus.Qualification;
+                textBox7.Text = LoggedInAlumnus.ExamDate.ToString("yyyy-mm-dd");
+
+            }
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -119,6 +146,23 @@ namespace GUI
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Skriv objectkod här
+
+
+            string Fname = textBox1.Text;
+            string Lname = textBox2.Text;
+            string Email = textBox4.Text;
+            string Qualification = textBox6.Text;
+
+            bool Accept1; 
+
+            // string PersonCode = textBox3.Text;
+            
 
         }
     }
