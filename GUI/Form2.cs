@@ -22,7 +22,7 @@ namespace GUI
 
         public Form2()
         {
-            InitializeComponent(); // lägg till checkboxObserver
+            InitializeComponent(); 
             
         }
 
@@ -41,6 +41,8 @@ namespace GUI
                 textBox6.Text = LoggedInAlumnus.Qualification;
                 textBox7.Text = LoggedInAlumnus.ExamDate.ToString("yyyy-mm-dd");
 
+
+                
             }
         }
 
@@ -151,19 +153,23 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Skriv objectkod här
+            
 
 
             string Fname = textBox1.Text;
             string Lname = textBox2.Text;
             string Email = textBox4.Text;
             string Qualification = textBox6.Text;
+            string PersonCode = textBox3.Text;
 
-            bool Accept1; 
+            bool Accept1 = int.TryParse(textBox5.Text, out int PhoneNumber);
+            bool Accept2 = DateTime.TryParse(textBox7.Text, out DateTime ExamDate);
 
-            // string PersonCode = textBox3.Text;
-            
+            bool Accept3 = false;
+            bool Accept4 = false;
 
+            string Password = textBox8.Text;
+            string RepeatPassword = textBox9.Text;
         }
     }
 }
