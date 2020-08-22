@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_Wpf1.Views"
         mc:Ignorable="d"
-        Title="RegisterView" Height="681.308" Width="450">
+        Title="RegisterView" Height="700.308" Width="450">
     <Grid Margin="0,0,0,-21">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -50,78 +50,86 @@
         <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
                  Text="{Binding Namn, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                  Margin="0,0,0,20"/>
-
-        <!--Personnummer-->
+        
         <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"
-                   Text="Personnummer (yymmddxxxx)"/>
+                   Text="Firstname: "/>
 
         <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"
+                 Text="{Binding Namn, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="0,0,0,20"/>
+
+
+        <!--Personnummer-->
+        <TextBlock Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
+                   Text="Personnummer (yymmddxxxx)"/>
+
+        <TextBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"
                  Text="{Binding Personnummer, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                  Margin="0,0,0,20"/>
 
         <!--Epostadress-->
-        <TextBlock Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBlock Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2"
                    Text="e-Postadress"/>
 
-        <TextBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBox Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2"
                  Text="{Binding Epostadress, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                  Margin="0,0,0,20"/>
 
         <!--Telefonnummer-->
-        <TextBlock Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBlock Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2"
                    Text="Telefonnummer (Siffror)"/>
 
-        <TextBox Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBox Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2"
                  Text="{Binding Telefonnummer, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                  Margin="0,0,0,20"/>
 
         <!--Utbildning-->
-        <TextBlock Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBlock Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="2"
                    Text="Utbildning"/>
 
-        <TextBox Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBox Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2"
                  Text="{Binding Utbildning, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                  Margin="0,0,0,20"/>
 
         <!--Examensdatum-->
-        <TextBlock Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBlock Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2"
                    Text="Examensdatum (yyyy-mm-dd)"/>
 
-        <TextBox Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBox Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="2"
                  Text="{Binding Examensdatum, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, StringFormat=yyyy-MM-dd}"
                  Margin="0,0,0,20"/>
 
         <!--Lösenord-->
-        <TextBlock Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBlock Grid.Row="16" Grid.Column="1" Grid.ColumnSpan="2"
                    Text="Lösenord"/>
 
-        <TextBox Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBox Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="2"
                  Text="{Binding Lösenord, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                  Margin="0,0,0,20"/>
 
         <!--Bekräfta Lösenord-->
-        <TextBlock Grid.Row="16" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBlock Grid.Row="18" Grid.Column="1" Grid.ColumnSpan="2"
                    Text="Bekräfta lösenord"/>
 
-        <TextBox Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBox Grid.Row="19" Grid.Column="1" Grid.ColumnSpan="2"
                  Text="{Binding Bekräfta, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                  Margin="0,0,0,20"/>
 
-        <CheckBox Grid.Row="18" Grid.Column="1" Grid.ColumnSpan="2"
+        <CheckBox Grid.Row="20" Grid.Column="1" Grid.ColumnSpan="2"
                   FontSize="15"
                   Content="Samtycker till lagring av personuppgifter"
                   IsChecked="{Binding Samtyckte}"
                   Margin="0,0,0,20"/>
 
-        <Button Grid.Row="19" Grid.Column="1" Content="Registrera" 
+        <Button Grid.Row="21" Grid.Column="1" Content="Registrera" 
                 Command="{Binding Registrera}"
                 Margin="0,0,0,20"/>
 
-        <Button Grid.Row="19" Grid.Column="2" Content="Avbryt" 
+        <Button Grid.Row="22" Grid.Column="2" Content="Avbryt" 
                 Command="{Binding Avbryt}"
                 Margin="0,0,0,20"/>
 
-        <TextBlock Grid.Row="20" Grid.Column="1" Grid.ColumnSpan="3"
+        <TextBlock Grid.Row="23" Grid.Column="1" Grid.ColumnSpan="3"
                    Text="{Binding Information, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
