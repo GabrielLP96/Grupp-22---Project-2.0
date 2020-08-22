@@ -1,4 +1,6 @@
-﻿namespace GUI
+﻿using System;
+
+namespace GUI
 {
     partial class Form3
     {
@@ -81,7 +83,6 @@
             this.label3.Size = new System.Drawing.Size(78, 31);
             this.label3.TabIndex = 4;
             this.label3.Text = "label3";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button1
             // 
@@ -108,6 +109,11 @@
             this.Text = "Form3";
             this.ResumeLayout(false);
             this.PerformLayout();
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
 
         }
 
