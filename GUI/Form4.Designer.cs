@@ -112,6 +112,7 @@
             this.listView1.TabIndex = 28;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // textBoxFname
             // 
@@ -146,6 +147,7 @@
             this.buttonChange.TabIndex = 74;
             this.buttonChange.Text = "Change";
             this.buttonChange.UseVisualStyleBackColor = true;
+            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
             // 
             // label18
             // 
@@ -201,6 +203,7 @@
             this.listView5.TabIndex = 84;
             this.listView5.UseCompatibleStateImageBehavior = false;
             this.listView5.View = System.Windows.Forms.View.Details;
+            this.listView5.SelectedIndexChanged += new System.EventHandler(this.listView5_SelectedIndexChanged);
             // 
             // textBoxLname
             // 
@@ -300,6 +303,7 @@
             this.buttonDelete.TabIndex = 97;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // label5
             // 
@@ -335,6 +339,7 @@
             this.ButtonCreatemailinglist.TabIndex = 101;
             this.ButtonCreatemailinglist.Text = "Create";
             this.ButtonCreatemailinglist.UseVisualStyleBackColor = true;
+            this.ButtonCreatemailinglist.Click += new System.EventHandler(this.ButtonCreatemailinglist_Click);
             // 
             // listView2
             // 
@@ -354,6 +359,7 @@
             this.buttonDeletemailinglist.TabIndex = 103;
             this.buttonDeletemailinglist.Text = "Delete";
             this.buttonDeletemailinglist.UseVisualStyleBackColor = true;
+            this.buttonDeletemailinglist.Click += new System.EventHandler(this.buttonDeletemailinglist_Click);
             // 
             // buttondeletefrommailinglist
             // 
@@ -363,6 +369,7 @@
             this.buttondeletefrommailinglist.TabIndex = 104;
             this.buttondeletefrommailinglist.Text = "Delete";
             this.buttondeletefrommailinglist.UseVisualStyleBackColor = true;
+            this.buttondeletefrommailinglist.Click += new System.EventHandler(this.buttondeletefrommailinglist_Click);
             // 
             // label7
             // 
@@ -382,6 +389,7 @@
             this.listView3.TabIndex = 106;
             this.listView3.UseCompatibleStateImageBehavior = false;
             this.listView3.View = System.Windows.Forms.View.Details;
+            this.listView3.SelectedIndexChanged += new System.EventHandler(this.listView3_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -412,9 +420,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(1838, 117);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 13);
+            this.label10.Size = new System.Drawing.Size(49, 13);
             this.label10.TabIndex = 119;
-            this.label10.Text = "kategory";
+            this.label10.Text = "Category";
             // 
             // textBoxaActivityadress
             // 
@@ -486,6 +494,7 @@
             this.listView4.TabIndex = 125;
             this.listView4.UseCompatibleStateImageBehavior = false;
             this.listView4.View = System.Windows.Forms.View.Details;
+            this.listView4.SelectedIndexChanged += new System.EventHandler(this.listView4_SelectedIndexChanged);
             // 
             // label25
             // 
@@ -493,9 +502,9 @@
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(1070, 336);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(67, 16);
+            this.label25.Size = new System.Drawing.Size(139, 16);
             this.label25.TabIndex = 126;
-            this.label25.Text = "Activites";
+            this.label25.Text = "Registered Alumns";
             // 
             // buttonDeleteAlumnfromActivity
             // 
@@ -505,6 +514,7 @@
             this.buttonDeleteAlumnfromActivity.TabIndex = 127;
             this.buttonDeleteAlumnfromActivity.Text = "Delete";
             this.buttonDeleteAlumnfromActivity.UseVisualStyleBackColor = true;
+            this.buttonDeleteAlumnfromActivity.Click += new System.EventHandler(this.buttonDeleteAlumnfromActivity_Click);
             // 
             // label26
             // 
@@ -523,6 +533,7 @@
             this.buttonDeleteactivity.TabIndex = 129;
             this.buttonDeleteactivity.Text = "Delete";
             this.buttonDeleteactivity.UseVisualStyleBackColor = true;
+            this.buttonDeleteactivity.Click += new System.EventHandler(this.buttonDeleteactivity_Click);
             // 
             // buttonLogOut
             // 
@@ -543,6 +554,7 @@
             this.button1.TabIndex = 131;
             this.button1.Text = "Reset";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label12
             // 
