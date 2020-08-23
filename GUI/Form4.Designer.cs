@@ -447,6 +447,7 @@
             this.buttonCreateActivity.TabIndex = 113;
             this.buttonCreateActivity.Text = "Create";
             this.buttonCreateActivity.UseVisualStyleBackColor = true;
+            this.buttonCreateActivity.Click += new System.EventHandler(this.buttonCreateActivity_Click);
             // 
             // label14
             // 
@@ -531,6 +532,7 @@
             this.buttonLogOut.TabIndex = 130;
             this.buttonLogOut.Text = "Log out";
             this.buttonLogOut.UseVisualStyleBackColor = true;
+            this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
             // button1
             // 
