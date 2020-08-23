@@ -19,12 +19,13 @@ namespace GUI
         public Form4()
         {
             InitializeComponent();
+            message();
             StartUpdate();
            
         }
         public void StartUpdate()
         {
-            message();
+            
             ShowAlumnus();
             ShowActivities();
             ShowMailinglist();
@@ -76,7 +77,7 @@ namespace GUI
             
         }
 
-        public void ShowAlumnsAtActivities() // Eventuellt ta bort To string på personcode
+        public void ShowAlumnsAtActivities() // Eventuellt lägg till To string på personcode
         {
             listView4.Items.Clear();
             listView4.Columns.Clear();
@@ -90,9 +91,10 @@ namespace GUI
                 {
                     foreach (Alumnus alumnusIndex1 in activityIndex1.Alumnuses)
                     {
-                        listView4.Items.Add(new ListViewItem(new string[] { alumnusIndex1.Fname, alumnusIndex1.Lname, alumnusIndex1.PersonCode.ToString() }));
+                        listView4.Items.Add(new ListViewItem(new string[] { alumnusIndex1.Fname, alumnusIndex1.Lname, alumnusIndex1.PersonCode }));
                     }
                 }
+
             }
         }
 
@@ -122,7 +124,7 @@ namespace GUI
                 {
                     foreach (Alumnus alumnusIndex1 in sendlistIndex1.Alumnuses)
                     {
-                        listView2.Items.Add(new ListViewItem(new string[] { alumnusIndex1.Fname, alumnusIndex1.Lname, alumnusIndex1.PersonCode.ToString() }));
+                        listView2.Items.Add(new ListViewItem(new string[] { alumnusIndex1.Fname, alumnusIndex1.Lname, alumnusIndex1.PersonCode }));
                     }
                 }
             }
@@ -209,7 +211,7 @@ namespace GUI
             if (listView3.SelectedItems.Count != 0 && listView3.SelectedItems.Count !=0)
             {
                 int ActivityID = int.Parse(listView3.SelectedItems[0].Text);
-                string PersonCode = listView4.SelectedItems[0].SubItems[1].Text; //ändrat denna
+                string PersonCode = listView4.SelectedItems[0].Text; //ändrat denna
                 BusinessManager.RemoveAlumnusActivity(ActivityID, PersonCode);
                 ShowAlumnsAtActivities();
             }
@@ -251,10 +253,11 @@ namespace GUI
             if (listView5.SelectedItems.Count !=0 && listView5.SelectedItems.Count !=0)
             {
                 int SendlistID = int.Parse(listView5.SelectedItems[0].Text);
-                string PersonCode = listView2.SelectedItems[0].SubItems[1].Text; // ändrat denna
+                string PersonCode = listView2.SelectedItems[0].Text; // ändrat denna //.SelectedItems[0].SubItems[1]
                 BusinessManager.RemoveAlumnusSendList(SendlistID, PersonCode);
                 ShowAlumnsAtMailinglist();
             }
+                      
         }
 
         private void buttonChange_Click(object sender, EventArgs e)
