@@ -125,7 +125,7 @@ namespace DataLayer
             {
                 Event = "Introduktion",
                 Adress = "Allégatan 1, 503 32 Borås",
-                Date = new DateTime(2020, 04, 01, 10, 30, 00),
+                Date = new DateTime(2020, 05, 01, 10, 30, 00),
                 Category = "Möte",
                 Alumnuses = new List<Alumnus>(),
                 Employee = employee1
@@ -139,7 +139,7 @@ namespace DataLayer
             {
                 Event = "Invignings Fest",
                 Adress = "Allégatan 1, 503 32 Borås",
-                Date = new DateTime(2020, 04, 01, 18, 30, 00),
+                Date = new DateTime(2020, 04, 02, 18, 30, 00),
                 Category = "Nöje",
                 Alumnuses = new List<Alumnus>(),
                 Employee = employee2
@@ -166,8 +166,8 @@ namespace DataLayer
                 Alumnuses = new List<Alumnus>(),
                 Employee = employee1
             };
-            sendList1.Alumnuses.Add(alumnus4);
-            sendList1.Alumnuses.Add(alumnus3);
+            sendList2.Alumnuses.Add(alumnus4);
+            sendList2.Alumnuses.Add(alumnus3);
             dataContext.SendLists.Add(sendList2);
 
             SendList sendList3 = new SendList()
@@ -176,8 +176,8 @@ namespace DataLayer
                 Alumnuses = new List<Alumnus>(),
                 Employee = employee2
             };
-            sendList1.Alumnuses.Add(alumnus5);
-            sendList1.Alumnuses.Add(alumnus6);
+            sendList3.Alumnuses.Add(alumnus5);
+            sendList3.Alumnuses.Add(alumnus6);
             dataContext.SendLists.Add(sendList3);
 
             dataContext.SaveChanges();

@@ -44,8 +44,9 @@
             this.listView1.Location = new System.Drawing.Point(12, 65);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(738, 213);
-            this.listView1.TabIndex = 0;
+            this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // listView2
             // 
@@ -53,8 +54,9 @@
             this.listView2.Location = new System.Drawing.Point(12, 336);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(738, 188);
-            this.listView2.TabIndex = 1;
+            this.listView2.TabIndex = 6;
             this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
             // 
             // label1
             // 

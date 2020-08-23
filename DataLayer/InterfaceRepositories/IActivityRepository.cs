@@ -9,6 +9,6 @@ namespace DataLayer.Repositories
 
         List<Activity> GetActivityWithAlumnus(int AlumnusId);
         List<Activity> GetAllActivitysWithAlumnus();
-        Activity GetAlumnusesWithActivity(int ActivityId);
+        Activity GetAlumnusesActivity(int ActivityId);
     }
 }

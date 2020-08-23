@@ -13,21 +13,21 @@ namespace DataLayer.Repositories
         public AlumnusRepository(DataContext context) : base(context)
         {
         }
-        public DataContext DataContext
+        public DataContext DataContexts
         {
-            get { return DataContext as DataContext; }
+            get { return dbContext as DataContext; }
         }
-        public Alumnus GetAlumnus(String PersonCode)
+        public Alumnus GetAlumnus(string PersonCode)
         {
-            return DataContext.Alumnuses.Where(x => x.PersonCode == PersonCode).FirstOrDefault();
+            return DataContexts.Alumnuses.Where(x => x.PersonCode == PersonCode).FirstOrDefault();
         }
         public Alumnus GetAlumnusActivity(int AlumnusId)
         {
-            return DataContext.Alumnuses.Include(x => x.Activities).Where(x => x.ID == AlumnusId).FirstOrDefault();
+            return DataContexts.Alumnuses.Include(x => x.Activities).Where(x => x.ID == AlumnusId).FirstOrDefault();
         }
         public List<Alumnus> GetAllAlumnusActivity()
         {
-            return DataContext.Alumnuses.Include(x => x.Activities).ToList();
+            return DataContexts.Alumnuses.Include(x => x.Activities).ToList();
         }
 
     }

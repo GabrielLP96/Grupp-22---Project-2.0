@@ -5,7 +5,7 @@ namespace DataLayer.Repositories
 {
     public interface IAlumnusRepository : IRepository<Alumnus>
     {
-        DataContext DataContext { get; }
+        DataContext DataContexts { get; }
 
         List<Alumnus> GetAllAlumnusActivity();
         Alumnus GetAlumnus(string PersonCode);

@@ -1,14 +1,5 @@
 ﻿using BusinessEntity.ClassModels;
-using BusinessEntity.CM_Interfaces;
-using BusinessEntity;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
 
@@ -30,10 +21,10 @@ namespace GUI
             listView1.Items.Clear();
             listView1.Columns.Clear();
             listView1.Columns.Add("ID").Width = 25;
-            listView1.Columns.Add("Event").Width = 100;
-            listView1.Columns.Add("Address").Width = 150;
-            listView1.Columns.Add("Date").Width = 100;
-            listView1.Columns.Add("Category").Width = 50;
+            listView1.Columns.Add("Event").Width = 150;
+            listView1.Columns.Add("Address").Width = 200;
+            listView1.Columns.Add("Date").Width = 150;
+            listView1.Columns.Add("Category").Width = 100;
 
             foreach(Activity activity in BusinessManager.GetAllActivities())
             {

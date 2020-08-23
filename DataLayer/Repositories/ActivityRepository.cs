@@ -24,7 +24,7 @@ namespace DataLayer.Repositories
             return DataContext.Activities.Where(x => x.Alumnuses.Any(z => z.ID == AlumnusId)).ToList();
         }
 
-        public Activity GetAlumnusesWithActivity(int ActivityId)
+        public Activity GetAlumnusesActivity(int ActivityId)
         {
             return DataContext.Activities.Include(x => x.Alumnuses).Where(x => x.ActivityID == ActivityId).FirstOrDefault();
         }
