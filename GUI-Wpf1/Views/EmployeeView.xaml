@@ -37,34 +37,34 @@
 
             <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5"
                    FontSize="30"
-                   Text="{Binding InloggadPersonalNamn, StringFormat=Välkommen {0}}"
+                   Text="{Binding loggedInEmployeeFirstname, StringFormat=Välkommen {0}}"
                    Margin="0,0,0,40"/>
 
             <!--Grupp 1-->
             <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5"
                    FontSize="25"
-                   Text="Registerade alumner"/>
+                   Text=" Registrated Alumnus"/>
 
             <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5"
-                  ItemsSource="{Binding RegisteradeAlumner, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding ValdAlumnGrupp1, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                  ItemsSource="{Binding  RegistratedAlumnus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding PickedAlumnusGroup1, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                   AutoGenerateColumns="False"
                   CanUserDeleteRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Namn}"/>
-                    <DataGridTextColumn Header="PersonCode" Binding="{Binding Personnummer}"/>
-                    <DataGridTextColumn Header="Email" Binding="{Binding Epostadress}"/>
-                    <DataGridTextColumn Header="Phonenumber" Binding="{Binding Telefonnummer}"/>
-                    <DataGridTextColumn Header="Qualification" Binding="{Binding Utbildning}"/>
-                    <DataGridTemplateColumn Header="Examensdatum">
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="PersonCode" Binding="{Binding PersonCode}"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                    <DataGridTextColumn Header="Phonenumber" Binding="{Binding Phonenumber}"/>
+                    <DataGridTextColumn Header="Qualification" Binding="{Binding Qualification}"/>
+                    <DataGridTemplateColumn Header="Exam date">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Examensdatum, StringFormat=yyyy-MM-dd}"/>
+                                <TextBlock Text="{Binding ExamDate, StringFormat=yyyy-MM-dd}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                         <DataGridTemplateColumn.CellEditingTemplate>
                             <DataTemplate>
-                                <DatePicker SelectedDate="{Binding Examensdatum}"/>
+                                <DatePicker SelectedDate="{Binding ExamDate}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
@@ -74,104 +74,104 @@
             <Button Grid.Row="4" Grid.Column="2" Content="Add Activity" 
                 Command="{Binding AddActivity}"/>
 
-            <Button Grid.Row="4" Grid.Column="3" Content="Lägg till i utskickslista" 
-                Command="{Binding LäggTillUtskickslista}"/>
+            <Button Grid.Row="4" Grid.Column="3" Content="Add SendList" 
+                Command="{Binding AddSendList}"/>
 
-            <Button Grid.Row="4" Grid.Column="4" Content="Spara" 
-                Command="{Binding SparaValdAlumn}"/>
+            <Button Grid.Row="4" Grid.Column="4" Content="Save" 
+                Command="{Binding SaveAlumn}"/>
 
-            <Button Grid.Row="4" Grid.Column="5" Content="Radera" 
-                Command="{Binding RaderaValdAlumn}"/>
+            <Button Grid.Row="4" Grid.Column="5" Content="Delete" 
+                Command="{Binding DeleteAlumn}"/>
 
             <!--Grupp 2-->
             <TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5"
                    FontSize="25"
-                   Text="Tillgängliga aktiviteter"
+                   Text="Available Activities"
                    Margin="0,20,0,0"/>
 
             <DataGrid Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="5"
-                  ItemsSource="{Binding TillgängligaAktiviteter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding ValdAktivitet, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                  ItemsSource="{Binding AvailableActivities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding PickedActivity, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                   AutoGenerateColumns="False"
                   CanUserDeleteRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Händelse" Binding="{Binding Händelse}"/>
-                    <DataGridTextColumn Header="Adress" Binding="{Binding Adress}"/>
-                    <DataGridTextColumn Header="Kategori" Binding="{Binding Kategori}"/>
-                    <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat=yyyy-MM-dd HH:mm}"/>
+                    <DataGridTextColumn Header="Event" Binding="{Binding Event}"/>
+                    <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                    <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
+                    <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=yyyy-MM-dd HH:mm}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
             <DataGrid Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="5"
-                  ItemsSource="{Binding ValdAktivitetsAlumner, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding ValdAlumnGrupp2, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                  ItemsSource="{Binding PickedActivityAlumn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding PickedAlumnusGroup2, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                   IsReadOnly="True"
                   AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Namn" Binding="{Binding Namn}"/>
-                    <DataGridTextColumn Header="Personnummer" Binding="{Binding Personnummer}"/>
-                    <DataGridTextColumn Header="E-Postadress" Binding="{Binding Epostadress}"/>
-                    <DataGridTextColumn Header="Telefonnummer" Binding="{Binding Telefonnummer}"/>
-                    <DataGridTextColumn Header="Utbildning" Binding="{Binding Utbildning}"/>
-                    <DataGridTextColumn Header="Examensdatum" Binding="{Binding Examensdatum, StringFormat=yyyy-MM-dd}"/>
+                    <DataGridTextColumn Header="Firstname" Binding="{Binding Fname}"/>
+                    <DataGridTextColumn Header="PersonCode" Binding="{Binding PersonCode}"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                    <DataGridTextColumn Header="PhoneNumber" Binding="{Binding PhoneNumber}"/>
+                    <DataGridTextColumn Header="Qualification" Binding="{Binding Qualification}"/>
+                    <DataGridTextColumn Header="Exam Date" Binding="{Binding ExamDate, StringFormat=yyyy-MM-dd}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
             <Button Grid.Row="8" Grid.Column="3" Content="Visa/Dölj anmälda" 
-                Command="{Binding VisaValdAktivitet}"/>
+                Command="{Binding ShowActivity}"/>
 
             <Button Grid.Row="8" Grid.Column="4" Content="Spara" 
-                Command="{Binding SparaValdAktivitet}"/>
+                Command="{Binding SaveActivity}"/>
 
             <Button Grid.Row="8" Grid.Column="5" Content="Radera" 
-                Command="{Binding RaderaValdAktivitet}"/>
+                Command="{Binding DeleteActivity}"/>
 
             <!--Grupp 3-->
             <TextBlock Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="5"
                    FontSize="25"
-                   Text="Utskickslistor"
+                   Text="SendList"
                    Margin="0,20,0,0"/>
 
             <ComboBox Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2"
-                  ItemsSource="{Binding Utskickslistor}"
-                  SelectedItem="{Binding ValdUtskickslista}"
+                  ItemsSource="{Binding SendLists}"
+                  SelectedItem="{Binding PickedSendList}"
                   IsReadOnly="True">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Namn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
 
             <TextBox Grid.Row="10" Grid.Column="4"
-                   Text="{Binding UtskickslistaNamn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                   Text="{Binding SendListName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Button Grid.Row="10" Grid.Column="5" Content="Skapa" 
-                Command="{Binding SkapaValdUtskickslista, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Grid.Row="10" Grid.Column="5" Content="Create" 
+                Command="{Binding CreateSendList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
 
             <DataGrid Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="5"
                   ItemsSource="{Binding ValdUtskickslistaAlumner, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem ="{Binding ValdAlumnGrupp3}"
+                  SelectedItem ="{Binding pickedSendlistAlumn}"
                   IsReadOnly="True"
                   AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Namn" Binding="{Binding Namn}"/>
-                    <DataGridTextColumn Header="Personnummer" Binding="{Binding Personnummer}"/>
-                    <DataGridTextColumn Header="E-Postadress" Binding="{Binding Epostadress}"/>
-                    <DataGridTextColumn Header="Telefonnummer" Binding="{Binding Telefonnummer}"/>
-                    <DataGridTextColumn Header="Utbildning" Binding="{Binding Utbildning}"/>
-                    <DataGridTextColumn Header="Examensdatum" Binding="{Binding Examensdatum, StringFormat=yyyy-MM-dd}"/>
+                    <DataGridTextColumn Header="Firstname" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="PersonCode" Binding="{Binding PersonCode}"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                    <DataGridTextColumn Header="PhoneNumber" Binding="{Binding PhoneNumber}"/>
+                    <DataGridTextColumn Header="Qualification" Binding="{Binding Qualification}"/>
+                    <DataGridTextColumn Header="ExamDate" Binding="{Binding ExamDate, StringFormat=yyyy-MM-dd}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button Grid.Row="12" Grid.Column="4" Content="Ta bort Alumn"
-                Command="{Binding TabortUtskickslistaAlumn}"/>
+            <Button Grid.Row="12" Grid.Column="4" Content="Remove Alumnus"
+                Command="{Binding DeleteAlumnAtSendList}"/>
 
-            <Button Grid.Row="12" Grid.Column="5" Content="Radera Lista" 
-                Command="{Binding RaderaValdUtskickslista}"/>
+            <Button Grid.Row="12" Grid.Column="5" Content="Delete SendLista" 
+                Command="{Binding DeleteSendlist}"/>
 
-            <Button Grid.Row="13" Grid.Column="5" Content="Logga ut" 
-                Command="{Binding Utloggning}"
+            <Button Grid.Row="13" Grid.Column="5" Content="Log out" 
+                Command="{Binding LogOut}"
                 Margin="0,20,0,0"/>
         </Grid>
     </ScrollViewer>
