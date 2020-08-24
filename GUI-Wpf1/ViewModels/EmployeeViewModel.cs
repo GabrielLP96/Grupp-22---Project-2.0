@@ -65,6 +65,7 @@ namespace GUI_Wpf1.ViewModels
                 ShowSendLists();
             }
         }
+       // public EmployeeViewModel(EmployeeView view) // ingen referens?
         public EmployeeViewModel(EmployeeView view)
         {
             this.View = view;
@@ -90,6 +91,7 @@ namespace GUI_Wpf1.ViewModels
 
             LogOut = new MainCommand(CloseView);
 
+            Logout = new MainCommand(OFF);
         }
 
 
@@ -118,9 +120,9 @@ namespace GUI_Wpf1.ViewModels
 
         private void AddAlumnToSendList()
         {
-            if (PickedAlumnusGroup1 != null && pickedSendList !=null)
+            if (PickedAlumnusGroup1 != null && PickedSendList !=null)
             {
-                pickedSendList.Alumnuses.Add(PickedAlumnusGroup1);
+                PickedSendList.Alumnuses.Add(PickedAlumnusGroup1);
                 UnitOfWork.Save();
 
                 pickedSendlistAlumn = new ObservableCollection<Alumnus>(PickedSendList.Alumnuses);
@@ -239,9 +241,9 @@ namespace GUI_Wpf1.ViewModels
         //3
         private void ShowSendLists()
         {
-            if(pickedSendList !=null)
+            if(PickedSendList !=null)
             {
-                pickedSendlistAlumn = new ObservableCollection<Alumnus>(UnitOfWork.SendLists.Get(pickedSendList.SendListID).Alumnuses);
+                pickedSendlistAlumn = new ObservableCollection<Alumnus>(UnitOfWork.SendLists.Get(PickedSendList.SendListID).Alumnuses);
                 OnPropertyChanged("pickedSendlistAlumn");
             }
         }
@@ -267,12 +269,12 @@ namespace GUI_Wpf1.ViewModels
 
         private void DeleteAlumns2()
         {
-            if (pickedSendList != null && PickedAlumnusGroup3 != null )
+            if (PickedSendList != null && PickedAlumnusGroup3 != null )
             {
-                UnitOfWork.SendLists.Get(pickedSendList.SendListID).Alumnuses.Remove(PickedAlumnusGroup3);
+                UnitOfWork.SendLists.Get(PickedSendList.SendListID).Alumnuses.Remove(PickedAlumnusGroup3);
                 UnitOfWork.Save();
 
-                pickedSendList = UnitOfWork.SendLists.Get(pickedSendList.SendListID);
+                PickedSendList = UnitOfWork.SendLists.Get(PickedSendList.SendListID);
                 OnPropertyChanged("pickedSendList");
             }
         }
