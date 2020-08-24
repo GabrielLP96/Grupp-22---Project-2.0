@@ -1,11 +1,11 @@
-﻿<Window x:Class= "GUI_Wpf1.Views.RegisterView"
+﻿<Window x:Class= "GUI_Wpf1.Views.ChangeView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_Wpf1.Views"
         mc:Ignorable="d"
-        Title="RegisterView" Height="735.787" Width="450">
+        Title="ChangeView" Height="735.787" Width="450">
     <Grid Margin="0,0,0,-21">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

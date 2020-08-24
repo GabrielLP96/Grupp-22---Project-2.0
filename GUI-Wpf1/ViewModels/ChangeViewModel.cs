@@ -23,6 +23,17 @@ namespace GUI_Wpf1.ViewModels
         public string PersonCode { get; set; }
         public string Email { get; set; }
         public string Qualification { get; set; }
+        public string ExamDate { get; set; }
+        public string Password { get; set; }
+        public string Confirm { get; set; }
+        public string Information { get; set; }
+
+
+        public ChangeViewModel(ChangeView view)
+        {
+            this.view = view;
+            Firstname
+        }
 
     }
 }
