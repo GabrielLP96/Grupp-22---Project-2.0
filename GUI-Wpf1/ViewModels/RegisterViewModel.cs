@@ -8,5 +8,6 @@ namespace GUI_Wpf1.ViewModels
 {
     class RegisterViewModel
     {
+
     }
 }
