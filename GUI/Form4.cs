@@ -77,7 +77,7 @@ namespace GUI
             
         }
 
-        public void ShowAlumnsAtActivities() // Eventuellt lägg till To string på personcode
+        public void ShowAlumnsAtActivities() 
         {
             listView4.Items.Clear();
             listView4.Columns.Clear();
@@ -94,7 +94,7 @@ namespace GUI
                         listView4.Items.Add(new ListViewItem(new string[] { alumnusIndex1.Fname, alumnusIndex1.Lname, alumnusIndex1.PersonCode }));
                     }
                 }
-
+                // Verkar inte fungera
             }
         }
 
@@ -156,7 +156,7 @@ namespace GUI
 
         private void listView3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listView2.SelectedItems.Count !=0)
+            if (listView3.SelectedItems.Count !=0)
             {
                 ShowAlumnsAtActivities();
             }
@@ -253,7 +253,7 @@ namespace GUI
             if (listView5.SelectedItems.Count !=0 && listView5.SelectedItems.Count !=0)
             {
                 int SendlistID = int.Parse(listView5.SelectedItems[0].Text);
-                string PersonCode = listView2.SelectedItems[0].Text; // ändrat denna //.SelectedItems[0].SubItems[1]
+                string PersonCode = listView2.SelectedItems.ToString();// ändrat denna //.SelectedItems[0].SubItems[1]
                 BusinessManager.RemoveAlumnusSendList(SendlistID, PersonCode);
                 ShowAlumnsAtMailinglist();
             }
@@ -262,7 +262,33 @@ namespace GUI
 
         private void buttonChange_Click(object sender, EventArgs e)
         {
+            IAlumnus temporaryalumn = new Alumnus();
 
+            if (listView1.SelectedItems.Count > 0)
+            {
+                string OldPersonCode = listView1.SelectedItems[0].Text;
+
+                bool Accept1 = int.TryParse(textBoxPhonenumber.Text, out int Phonenumber);
+                bool Accept2 = DateTime.TryParse(textBoxExamDate.Text, out DateTime Examdate);
+
+                List<bool> Accepts = new List<bool> { Accept1, Accept2 }; 
+
+                if (!Accepts.Contains(false))
+                {
+                    temporaryalumn.Fname = textBoxFname.Text;
+                    temporaryalumn.Lname = textBoxLname.Text;
+                    temporaryalumn.PersonCode = textBoxPersonCode.Text;
+                    temporaryalumn.Qualification = textBoxQuali.Text;
+                    temporaryalumn.Email = textBoxEmail.Text;
+                    temporaryalumn.PhoneNumber = Phonenumber;
+                    temporaryalumn.ExamDate = Examdate;
+
+                    BusinessManager.ChangeAlumnus2(temporaryalumn, OldPersonCode);
+                    StartUpdate();
+
+                }
+
+            }
         }
 
         private void buttonLogOut_Click(object sender, EventArgs e)
@@ -278,6 +304,7 @@ namespace GUI
                 BusinessManager = new BusinessManager();
                 StartUpdate();
             }
+            
         }
     }
 }
