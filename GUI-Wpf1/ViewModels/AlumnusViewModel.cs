@@ -65,7 +65,10 @@ namespace GUI_Wpf1.ViewModels
         }
         private void ChangeAlumnus()
         {
-            ChangeViewModel.
+            ChangeViewModel.AlumnusOnline = AlumnusOnline;
+            ChangeView change = new ChangeView();
+            change.Show();
+            CloseVy();
         }
 
         private void CloseVy()

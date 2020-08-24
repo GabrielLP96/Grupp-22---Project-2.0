@@ -21,6 +21,8 @@ namespace GUI_Wpf1.ViewModels
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string PersonCode { get; set; }
+        public string Email { get; set; }
+        public string Qualification { get; set; }
 
     }
 }
