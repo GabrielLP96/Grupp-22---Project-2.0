@@ -102,16 +102,16 @@ namespace BusinessLayer
         }
 
         //Change
-        public void ChangeAlumnus(IAlumnus alumnus) //form 2
+        public void ChangeAlumnus(IAlumnus TemporaryAlumn) //form 2
         {
             Alumnus alumnusX = unitOfWork.Alumnuses.Get(PersonOnline.ID);
-            alumnusX.Fname = alumnus.Fname;
-            alumnusX.Lname = alumnus.Lname;
-            alumnusX.PersonCode = alumnus.PersonCode;
-            alumnusX.Email = alumnus.Email;
-            alumnusX.Password = alumnus.Password;
-            alumnusX.Qualification = alumnus.Qualification;
-            alumnusX.ExamDate = alumnus.ExamDate;
+            alumnusX.Fname = TemporaryAlumn.Fname;
+            alumnusX.Lname = TemporaryAlumn.Lname;
+            alumnusX.PersonCode = TemporaryAlumn.PersonCode;
+            alumnusX.Email = TemporaryAlumn.Email;
+            alumnusX.Password = TemporaryAlumn.Password;
+            alumnusX.Qualification = TemporaryAlumn.Qualification;
+            alumnusX.ExamDate = TemporaryAlumn.ExamDate;
             unitOfWork.Save();
         }
         public void ChangeAlumnus2(IAlumnus alumnus, string PersonCode) // form4
