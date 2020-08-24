@@ -8,7 +8,7 @@ using BusinessEntity.ClassModels;
 using GUI_Wpf1.ViewModels;
 using GUI_Wpf1.Views;
 using System.Collections.ObjectModel;
-
+using System.Windows.Controls;
 
 namespace GUI_Wpf1.ViewModels
 {
@@ -21,7 +21,7 @@ namespace GUI_Wpf1.ViewModels
 
        
         public ObservableCollection<Alumnus> RegistratedAlumnus { get; set; }
-        public ObservableCollection<Activity> Activities { get; set; }
+        public ObservableCollection<Activity> AvailableActivities { get; set; }
         public ObservableCollection<Alumnus> PickedActivityAlumn { get; set; }
         public ObservableCollection<SendList> SendLists { get; set; }
         public ObservableCollection<Alumnus> pickedSendlistAlumn { get; set; }
@@ -70,7 +70,7 @@ namespace GUI_Wpf1.ViewModels
             this.View = view;
             Hide = true;
             RegistratedAlumnus = new ObservableCollection<Alumnus>(UnitOfWork.Alumnuses.GetAll());
-            Activities = new ObservableCollection<Activity>(UnitOfWork.Activities.GetAllActivitysWithAlumnus());
+            AvailableActivities = new ObservableCollection<Activity>(UnitOfWork.Activities.GetAllActivitysWithAlumnus());
             SendLists = new ObservableCollection<SendList>(UnitOfWork.SendLists.GettAllSendListWithAlumnuses(OnlineEmployee.ID));
 
             //1
@@ -159,22 +159,72 @@ namespace GUI_Wpf1.ViewModels
         //2
         private void ShowAlumnAtActivities()
         {
-
+            if(PickedActivity != null && PickedActivity.Alumnuses !=null)
+            {
+                PickedActivityAlumn = new ObservableCollection<Alumnus>(PickedActivity.Alumnuses);
+                OnPropertyChanged("PickedActivityAlumn");
+                Hide = false;
+            }
         }
 
         private void ShowHideAlumnAtActivity()
         {
-
+            if (PickedActivity != OldActivity && PickedActivity != null && PickedActivity.Alumnuses !=null)
+            {
+                PickedActivityAlumn = new ObservableCollection<Alumnus>(PickedActivity.Alumnuses);
+                Hide = false;
+            }
+            else if (Hide == false)
+            {
+                PickedActivityAlumn = null;
+                Hide = true;
+            }
+            else if (PickedActivity != null && PickedActivity.Alumnuses != null)
+            {
+                PickedActivityAlumn = new ObservableCollection<Alumnus>(PickedActivity.Alumnuses);
+                Hide = false;
+            }
+            OnPropertyChanged("PickedActivityAlumn");
+            OldActivity = PickedActivity;
         }
 
         private void SaveActivities()
         {
-
+            foreach (Activity activityIndex in AvailableActivities)
+            {
+                activityIndex.Employee = UnitOfWork.Employees.Get(OnlineEmployee.ID);
+                UnitOfWork.Activities.AddUppdate(activityIndex);
+            }
+            UnitOfWork.Save();
         }
 
         private void DeleteAlumnAtActivity()
         {
+            if(PickedActivityAlumn != null && !PickedActivityAlumn.Any())
+            {
+                Hide = true;
+            }
+            if (PickedAlumnusGroup2 != null && Hide == false)
+            {
+                PickedActivity.Alumnuses.Remove(PickedAlumnusGroup2);
+                UnitOfWork.Save();
 
+                PickedActivityAlumn = new ObservableCollection<Alumnus>(PickedActivity.Alumnuses);
+                OnPropertyChanged("PickedActivityAlumn");
+            }
+            else if (PickedActivity != null && Hide == true)
+            {
+                bool controller = UnitOfWork.Activities.GetAll().Where(x => x == PickedActivity).Any();
+
+                if (controller == true)
+                {
+                    UnitOfWork.Activities.Remover(PickedActivity);
+                    UnitOfWork.Save();
+                }
+                AvailableActivities = new ObservableCollection<Activity>(UnitOfWork.Activities.GetAll());
+                OnPropertyChanged("AvailableActivities");
+
+            }
         }
 
 
@@ -187,22 +237,56 @@ namespace GUI_Wpf1.ViewModels
         //3
         private void ShowSendLists()
         {
-
+            if(pickedSendList !=null)
+            {
+                pickedSendlistAlumn = new ObservableCollection<Alumnus>(UnitOfWork.SendLists.Get(pickedSendList.SendListID).Alumnuses);
+                OnPropertyChanged("pickedSendlistAlumn");
+            }
         }
 
         private void CreateSendLists()
         {
+            if(SendListName != null && SendListName != string.Empty)
+            {
+                SendList NewSendList = new SendList();
+                NewSendList.Employee = UnitOfWork.Employees.Get(OnlineEmployee.ID);
+                NewSendList.Name = SendListName;
 
+                UnitOfWork.SendLists.Add(NewSendList);
+                UnitOfWork.Save();
+
+                SendLists = new ObservableCollection<SendList>(UnitOfWork.SendLists.GettAllSendListWithAlumnuses(OnlineEmployee.ID));
+                OnPropertyChanged("SendLists");
+
+                SendListName = string.Empty;
+                OnPropertyChanged("SendListName");
+            }
         }
 
         private void DeleteAlumns2()
         {
+            if (pickedSendList != null && PickedAlumnusGroup3 != null )
+            {
+                UnitOfWork.SendLists.Get(pickedSendList.SendListID).Alumnuses.Remove(PickedAlumnusGroup3);
+                UnitOfWork.Save();
 
+                pickedSendList = UnitOfWork.SendLists.Get(pickedSendList.SendListID);
+                OnPropertyChanged("pickedSendList");
+            }
         }
 
         private void DeleteSendLists()
         {
+            if (pickedSendList != null)
+            {
+                UnitOfWork.SendLists.Remover(UnitOfWork.SendLists.Get(pickedSendList.SendListID));
+                UnitOfWork.Save();
 
+                SendLists = new ObservableCollection<SendList>(UnitOfWork.SendLists.GettAllSendListWithAlumnuses(OnlineEmployee.ID));
+                pickedSendlistAlumn = null;
+                OnPropertyChanged("SendLists");
+                OnPropertyChanged("pickedSendlistAlumn");
+            }
         }
 
         private void OFF()
