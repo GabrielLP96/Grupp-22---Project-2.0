@@ -41,7 +41,7 @@ namespace GUI_Wpf1.ViewModels
         public MainCommand DeleteSendlist { get; }
         public MainCommand DeleteAlumnAtSendList { get; }
 
-        public MainCommand Logout { get; }
+        public MainCommand LogOut { get; }
 
 
         public string loggedInEmployeeFirstname { get { return OnlineEmployee.Fname; } }
@@ -87,6 +87,8 @@ namespace GUI_Wpf1.ViewModels
             CreateSendList = new MainCommand(CreateSendLists);
             DeleteAlumnAtSendList = new MainCommand(DeleteAlumns2);
             DeleteSendlist = new MainCommand(DeleteSendLists);
+
+            LogOut = new MainCommand(CloseView);
 
         }
 
@@ -277,9 +279,9 @@ namespace GUI_Wpf1.ViewModels
 
         private void DeleteSendLists()
         {
-            if (pickedSendList != null)
+            if (PickedSendList != null)
             {
-                UnitOfWork.SendLists.Remover(UnitOfWork.SendLists.Get(pickedSendList.SendListID));
+                UnitOfWork.SendLists.Remover(UnitOfWork.SendLists.Get(PickedSendList.SendListID));
                 UnitOfWork.Save();
 
                 SendLists = new ObservableCollection<SendList>(UnitOfWork.SendLists.GettAllSendListWithAlumnuses(OnlineEmployee.ID));
@@ -289,7 +291,7 @@ namespace GUI_Wpf1.ViewModels
             }
         }
 
-        private void OFF()
+        private void CloseView()
         {
             View.Close();
         }
