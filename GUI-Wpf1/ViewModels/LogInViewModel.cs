@@ -71,6 +71,7 @@ namespace GUI_Wpf1.ViewModels
             Alumnuses = new ObservableCollection<Alumnus>(UnitOfWork.Alumnuses.GetAll());
             Employees = new ObservableCollection<Employee>(UnitOfWork.Employees.GetAll());
             LogIn = new MainCommand(Authentication);
+            Registration = new MainCommand(CreateUser);
         }
 
 
@@ -122,9 +123,10 @@ namespace GUI_Wpf1.ViewModels
             OnPropertyChanged("PasswordBox");
             OnPropertyChanged("ErrorMessage");
         }
-        private void CloseView()
+       private void CreateUser()
         {
-            view.Close();
+            RegisterView view = new RegisterView();
+            view.Show();
         }
     }
 }

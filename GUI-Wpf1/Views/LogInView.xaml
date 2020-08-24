@@ -51,7 +51,7 @@
 
         <!--Rad 6-->
         <Button Grid.Row="6" Grid.Column="1" Content="Log in" 
-                Command="{Binding login}"/>
+                Command="{Binding LogIn}"/>
 
         <Button Grid.Row="6" Grid.Column="2" Content="Registrera"
                 Command="{Binding Registration}"/>

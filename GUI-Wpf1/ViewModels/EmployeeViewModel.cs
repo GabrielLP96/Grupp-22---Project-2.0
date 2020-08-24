@@ -91,7 +91,7 @@ namespace GUI_Wpf1.ViewModels
 
             LogOut = new MainCommand(CloseView);
 
-            Logout = new MainCommand(OFF);
+            
         }
 
 
