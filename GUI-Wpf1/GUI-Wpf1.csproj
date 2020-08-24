@@ -81,7 +81,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainCommand.cs" />
+    <Compile Include="ViewModels\MainCommand.cs" />
     <Compile Include="Views\AlumnusView.xaml.cs">
       <DependentUpon>AlumnusView.xaml</DependentUpon>
     </Compile>
@@ -98,7 +98,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NotifyPropertyChanged.cs" />
+    <Compile Include="Models\NotifyPropertyChanged.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -124,9 +124,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
