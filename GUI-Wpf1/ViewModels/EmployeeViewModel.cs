@@ -41,7 +41,7 @@ namespace GUI_Wpf1.ViewModels
         public MainCommand DeleteSendlist { get; }
         public MainCommand DeleteAlumnAtSendList { get; }
 
-        public MainCommand Logout { get; }
+        public MainCommand LogOut { get; }
 
 
         public string loggedInEmployeeFirstname { get { return OnlineEmployee.Fname; } }
@@ -88,6 +88,8 @@ namespace GUI_Wpf1.ViewModels
             CreateSendList = new MainCommand(CreateSendLists);
             DeleteAlumnAtSendList = new MainCommand(DeleteAlumns2);
             DeleteSendlist = new MainCommand(DeleteSendLists);
+
+            LogOut = new MainCommand(CloseView);
 
             Logout = new MainCommand(OFF);
         }
@@ -291,7 +293,7 @@ namespace GUI_Wpf1.ViewModels
             }
         }
 
-        private void OFF()
+        private void CloseView()
         {
             View.Close();
         }

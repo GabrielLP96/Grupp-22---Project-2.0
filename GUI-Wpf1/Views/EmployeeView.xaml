@@ -51,11 +51,11 @@
                   AutoGenerateColumns="False"
                   CanUserDeleteRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Namn" Binding="{Binding Namn}"/>
-                    <DataGridTextColumn Header="Personnummer" Binding="{Binding Personnummer}"/>
-                    <DataGridTextColumn Header="E-Postadress" Binding="{Binding Epostadress}"/>
-                    <DataGridTextColumn Header="Telefonnummer" Binding="{Binding Telefonnummer}"/>
-                    <DataGridTextColumn Header="Utbildning" Binding="{Binding Utbildning}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Namn}"/>
+                    <DataGridTextColumn Header="PersonCode" Binding="{Binding Personnummer}"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Epostadress}"/>
+                    <DataGridTextColumn Header="Phonenumber" Binding="{Binding Telefonnummer}"/>
+                    <DataGridTextColumn Header="Qualification" Binding="{Binding Utbildning}"/>
                     <DataGridTemplateColumn Header="Examensdatum">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -71,8 +71,8 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button Grid.Row="4" Grid.Column="2" Content="Lägg till i aktivitet" 
-                Command="{Binding LäggTillAktivitet}"/>
+            <Button Grid.Row="4" Grid.Column="2" Content="Add Activity" 
+                Command="{Binding AddActivity}"/>
 
             <Button Grid.Row="4" Grid.Column="3" Content="Lägg till i utskickslista" 
                 Command="{Binding LäggTillUtskickslista}"/>

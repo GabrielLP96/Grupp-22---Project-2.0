@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using BusinessEntity.ClassModels;
 using System.Collections.ObjectModel;
 using BusinessEntity.CM_Interfaces;
+using System.Windows.Controls;
+using DataLayer.Repositories;
+using GUI_Wpf1.Views;
 
 namespace GUI_Wpf1.ViewModels
 {
@@ -20,46 +23,46 @@ namespace GUI_Wpf1.ViewModels
 
 
         public MainCommand LogIn { get; }
-        public MainCommand Register { get; }
+        public MainCommand Registration { get; }
 
-        public string WrongMessage { get; set; } = string.Empty;
+        public string ErrorMessage { get; set; } = string.Empty;
         public string PasswordBox { get; set; } = string.Empty;
-        public string personCodeBox = string.Empty;
+        public string PersonCodeBox { get; set; } = string.Empty;
 
-        public string PersonCodeBox
-        {
-            get
-            {
-                return personCodeBox;
-            }
-            set
-            {
-                personCodeBox = value;
+        //public string PersonCodeBox
+        //{
+        //    get
+        //    {
+        //        return personCodeBox;
+        //    }
+        //    set
+        //    {
+        //        personCodeBox = value;
                 
-            }
-        }
+        //    }
+        //}
 
-        public string WelcomeMessage
-        {
-            get
-            {
-                IPerson person;
-                person = Alumnuses.Where(x => x.PersonCode.ToString() == personCodeBox).FirstOrDefault();
-                if(person is Alumnus)
-                {
-                    return person.Fname;
-                }
-                person = Alumnuses.Where(x => x.PersonCode.ToString() == personCodeBox).FirstOrDefault();
-                if (person is Employee)
-                {
-                    return person.Fname;
-                }
-                else
-                {
-                    return string.Empty;
-                }
-            }
-        }
+        //public string WelcomeMessage
+        //{
+        //    get
+        //    {
+        //        IPerson person;
+        //        person = Alumnuses.Where(x => x.PersonCode.ToString() == personCodeBox).FirstOrDefault();
+        //        if(person is Alumnus)
+        //        {
+        //            return person.Fname;
+        //        }
+        //        person = Alumnuses.Where(x => x.PersonCode.ToString() == personCodeBox).FirstOrDefault();
+        //        if (person is Employee)
+        //        {
+        //            return person.Fname;
+        //        }
+        //        else
+        //        {
+        //            return string.Empty;
+        //        }
+        //    }
+        //}
 
 
         public LogInViewModel(MainWindow view)
@@ -67,7 +70,7 @@ namespace GUI_Wpf1.ViewModels
             this.view = view;
             Alumnuses = new ObservableCollection<Alumnus>(UnitOfWork.Alumnuses.GetAll());
             Employees = new ObservableCollection<Employee>(UnitOfWork.Employees.GetAll());
-            LogIn = new MainCommand();
+            LogIn = new MainCommand(Authentication);
         }
 
 
@@ -80,23 +83,48 @@ namespace GUI_Wpf1.ViewModels
 
         private void InPutControll()
         {
-            if (personCodeBox.ToCharArray().Where(x => !char.IsDigit(x)).Any())
+            if (PersonCodeBox.ToCharArray().Where(x => !char.IsDigit(x)).Any())
             {
-                WrongMessage = "May only contain numbers";
+                ErrorMessage = "May only contain numbers";
             }
-            else if (personCodeBox != string.Empty)
+            else if (PersonCodeBox != string.Empty)
             {
-                WrongMessage = string.Empty;
+                ErrorMessage = string.Empty;
             }
-            OnPropertyChanged("WrongMessage");
+            OnPropertyChanged("ErrorMessage");
         }
 
         private void Authentication()
-        { 
-            if (long.TryParse(PersonCodeBox, out long PersonCode) && PasswordBox !=null)
+        {
+            Alumnus Alumnus = Alumnuses.Where(x => x.PersonCode == PersonCodeBox && x.Password == PasswordBox).FirstOrDefault();
+            Employee employee = Employees.Where(x => x.PersonCode == PersonCodeBox && x.Password == PasswordBox).FirstOrDefault();
+
+
+            if (Alumnus is Alumnus)
             {
-                Alumnus alumnus = Alumnuses.Where(x => x.PersonCode = PersonCode && x.Password == PasswordBox).FirstOrDefault();
+                AlumnusViewModel.AlumnusOnline = Alumnus;
+                AlumnusView Oppen = new AlumnusView();
+                Oppen.Show();
             }
+            else if (employee is Employee)
+            {
+                EmployeeViewModel.OnlineEmployee = employee;
+                EmployeeView Open = new EmployeeView();
+                Open.Show();
+            }
+            else
+            {
+                ErrorMessage = "Incorrect login";
+            }
+            PersonCodeBox = string.Empty;
+            PasswordBox = string.Empty;
+            OnPropertyChanged("PersonCodeBox");
+            OnPropertyChanged("PasswordBox");
+            OnPropertyChanged("ErrorMessage");
+        }
+        private void CloseView()
+        {
+            view.Close();
         }
     }
 }
