@@ -25,7 +25,7 @@ namespace GUI_Wpf1.ViewModels
         public ObservableCollection<SendList> SendLists { get; set; }
         public ObservableCollection<Alumnus> AlumnAtSendList { get; set; }
 
-        public MainCommand addActivity { get; }
+        public MainCommand AddActivity { get; }
         public MainCommand AddSendList { get; }
         public MainCommand SaveAlumn { get; }
         public MainCommand DeleteAlumn { get; }
@@ -41,7 +41,7 @@ namespace GUI_Wpf1.ViewModels
         public MainCommand Logout { get; }
 
 
-        public string loggedInEmployeeName { get; } //{ return OnlineEmployee.Name; } }
+        public string loggedInEmployeeFirstname { get { return OnlineEmployee.Fname; } }
 
         public string SendListName { get; set; }
 
@@ -52,13 +52,13 @@ namespace GUI_Wpf1.ViewModels
         public Alumnus AlumnusGroup2 { get; set; }
         public Alumnus AlumnusGroup3 { get; set; }
 
-        private SendList sendList;
-        public SendList SendList
+        private SendList pickedSendList;
+        public SendList PickedSendList
         {
-            get { return sendList; }
+            get { return pickedSendList; }
             set
             {
-                sendList = value;
+                pickedSendList = value;
                 ShowSendLists();
             }
         }
@@ -68,7 +68,7 @@ namespace GUI_Wpf1.ViewModels
             Hide = true;
             RegistratedAlumnus = new ObservableCollection<Alumnus>(UnitOfWork.Alumnuses.GetAll());
             Activities = new ObservableCollection<Activity>(UnitOfWork.Activities.GetAllActivitysWithAlumnus());
-            SendList = new ObservableCollection<SendList>(UnitOfWork.SendLists.GettAllSendListWithAlumnuses(OnlineEmployee.ID));
+            SendLists = new ObservableCollection<SendList>(UnitOfWork.SendLists.GettAllSendListWithAlumnuses(OnlineEmployee.ID));
         }
 
 
