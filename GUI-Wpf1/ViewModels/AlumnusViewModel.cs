@@ -37,7 +37,7 @@ namespace GUI_Wpf1.ViewModels
             Book = new MainCommand(BookActivity);
             CancelBooking = new MainCommand(CanceledAktivity);
             Change = new MainCommand(ChangeAlumnus);
-            LogOut = new MainCommand(CloseVy);
+            LogOut = new MainCommand(CloseView);
         }
 
         private void BookActivity()
@@ -68,10 +68,10 @@ namespace GUI_Wpf1.ViewModels
             ChangeViewModel.AlumnusOnline = AlumnusOnline;
             ChangeView change = new ChangeView();
             change.Show();
-            CloseVy();
+            CloseView();
         }
 
-        private void CloseVy()
+        private void CloseView()
         {
             view.Close();
         }
