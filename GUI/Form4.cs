@@ -289,6 +289,13 @@ namespace GUI
                 }
 
             }
+            textBoxFname.Text = string.Empty;
+            textBoxLname.Text = string.Empty;
+            textBoxPersonCode.Text = string.Empty;
+            textBoxQuali.Text = string.Empty;
+            textBoxEmail.Text = string.Empty;
+            textBoxPhonenumber.Text = string.Empty;
+            textBoxExamDate.Text = string.Empty;
         }
 
         private void buttonLogOut_Click(object sender, EventArgs e)
