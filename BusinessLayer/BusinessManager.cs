@@ -77,7 +77,7 @@ namespace BusinessLayer
         //Create
         public bool CreateAlumnus(Alumnus NewAlumnus) //form 2
         {
-            if (unitOfWork.Alumnuses.GetAll().Any(x => x.PersonCode == NewAlumnus.PersonCode))
+            if (!unitOfWork.Alumnuses.GetAll().Any(x => x.PersonCode == NewAlumnus.PersonCode))
             {
                 unitOfWork.Alumnuses.Add(NewAlumnus);
                 unitOfWork.Save();

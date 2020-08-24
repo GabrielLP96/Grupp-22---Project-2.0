@@ -165,8 +165,6 @@ namespace GUI
             bool Accept1 = int.TryParse(textBox5.Text, out int PhoneNumber);
             bool Accept2 = DateTime.TryParse(textBox7.Text, out DateTime ExamDate);
           
-          
-
             bool Accept3 = false;
             bool Accept4 = false;
 
@@ -209,13 +207,14 @@ namespace GUI
                 NewAlumnus.Qualification = Qualification;
                 NewAlumnus.ExamDate = ExamDate;
 
-                bool Accept6 = BusinessManager.CreateAlumnus(NewAlumnus);
-                if (Accept6 == false)
+                bool Accept5 = BusinessManager.CreateAlumnus(NewAlumnus);
+                if (Accept5 == false)
                 {
                     MessageBox.Show("User alredy registrated, please try again");
                 }
                 else
                 {
+                    MessageBox.Show("You are now registrated");
                     Close();
                 }
             }
