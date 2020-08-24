@@ -350,6 +350,7 @@
             this.listView2.TabIndex = 102;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // buttonDeletemailinglist
             // 
@@ -490,7 +491,7 @@
             this.listView4.HideSelection = false;
             this.listView4.Location = new System.Drawing.Point(1073, 355);
             this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(426, 306);
+            this.listView4.Size = new System.Drawing.Size(426, 322);
             this.listView4.TabIndex = 125;
             this.listView4.UseCompatibleStateImageBehavior = false;
             this.listView4.View = System.Windows.Forms.View.Details;
@@ -508,7 +509,7 @@
             // 
             // buttonDeleteAlumnfromActivity
             // 
-            this.buttonDeleteAlumnfromActivity.Location = new System.Drawing.Point(1424, 667);
+            this.buttonDeleteAlumnfromActivity.Location = new System.Drawing.Point(1424, 686);
             this.buttonDeleteAlumnfromActivity.Name = "buttonDeleteAlumnfromActivity";
             this.buttonDeleteAlumnfromActivity.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteAlumnfromActivity.TabIndex = 127;
@@ -519,7 +520,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(1282, 672);
+            this.label26.Location = new System.Drawing.Point(1282, 691);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(136, 13);
             this.label26.TabIndex = 128;

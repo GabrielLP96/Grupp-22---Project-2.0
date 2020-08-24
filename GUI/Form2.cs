@@ -180,7 +180,7 @@ namespace GUI
                 Accept4 = true;
             }
 
-            List<bool> Accepts = new List<bool> { Accept1, Accept2, Accept3, Accept4,};
+            List<bool> Accepts = new List<bool> { Accept1, Accept2, Accept3, Accept4 };
             if (!Accepts.Contains(false) && BusinessManager.GetAlumnusOnline() != null)
             {
                 IAlumnus TemporaryAlumn = new Alumnus();

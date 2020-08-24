@@ -110,10 +110,10 @@ namespace GUI
                 listView5.Items.Add(new ListViewItem(new string[] { sendListIndex.SendListID.ToString(), sendListIndex.Name }));
             }
         }
-        public void ShowAlumnsAtMailinglist() // Eventuellt ta bort To string på personcode
+        public void ShowAlumnsAtMailinglist() 
         {
             listView2.Items.Clear();
-            listView2.Items.Clear();
+            listView2.Columns.Clear();
             if (listView5.SelectedItems.Count !=0 )
             {
                 listView2.Columns.Add("Firstname").Width = 150;
@@ -208,10 +208,10 @@ namespace GUI
 
         private void buttonDeleteAlumnfromActivity_Click(object sender, EventArgs e)
         {
-            if (listView3.SelectedItems.Count != 0 && listView3.SelectedItems.Count !=0)
+            if (listView3.SelectedItems.Count != 0 && listView4.SelectedItems.Count !=0)
             {
                 int ActivityID = int.Parse(listView3.SelectedItems[0].Text);
-                string PersonCode = listView4.SelectedItems[0].Text; //ändrat denna
+                string PersonCode = listView4.SelectedItems[0].SubItems[2].Text;
                 BusinessManager.RemoveAlumnusActivity(ActivityID, PersonCode);
                 ShowAlumnsAtActivities();
             }
@@ -250,10 +250,10 @@ namespace GUI
 
         private void buttondeletefrommailinglist_Click(object sender, EventArgs e)
         {
-            if (listView5.SelectedItems.Count !=0 && listView5.SelectedItems.Count !=0)
+            if (listView5.SelectedItems.Count !=0 && listView2.SelectedItems.Count !=0)
             {
                 int SendlistID = int.Parse(listView5.SelectedItems[0].Text);
-                string PersonCode = listView2.SelectedItems[0].SubItems[1].Text;// ändrat denna //.SelectedItems[0].SubItems[1]
+                string PersonCode = listView2.SelectedItems[0].SubItems[2].Text;
                 BusinessManager.RemoveAlumnusSendList(SendlistID, PersonCode);
                 ShowAlumnsAtMailinglist();
             }
@@ -312,6 +312,11 @@ namespace GUI
                 StartUpdate();
             }
             
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
