@@ -69,7 +69,7 @@ namespace BusinessLayer
         {
             return unitOfWork.Alumnuses.GetAll();
         }
-        public List<SendList>GetSendListsByID()
+        public List<SendList>GetSendListsByID() //form4
         {
             return unitOfWork.SendLists.GettAllSendListWithAlumnuses(PersonOnline.ID);
         }

@@ -19,9 +19,9 @@ namespace DataLayer.Repositories
             get { return dbContext as DataContext; }
         }
 
-        public List<SendList> GettAllSendListWithAlumnuses(int PersonID)
+        public List<SendList> GettAllSendListWithAlumnuses(int EmployeeID)
         {
-            return DataContext.SendLists.Include(x => x.Alumnuses).Where(x => x.Employee.ID == PersonID).ToList();
+            return DataContext.SendLists.Include(x => x.Alumnuses).Where(x => x.Employee.ID == EmployeeID).ToList();
         }
     }
 }

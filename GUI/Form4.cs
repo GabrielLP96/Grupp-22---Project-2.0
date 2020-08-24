@@ -101,7 +101,7 @@ namespace GUI
         public void ShowMailinglist()
         {
             listView5.Items.Clear();
-            listView5.Items.Clear();
+            listView5.Columns.Clear();
             listView5.Columns.Add("ID").Width = 25;
             listView5.Columns.Add("Mailinglist").Width = 150;
 
@@ -253,7 +253,7 @@ namespace GUI
             if (listView5.SelectedItems.Count !=0 && listView5.SelectedItems.Count !=0)
             {
                 int SendlistID = int.Parse(listView5.SelectedItems[0].Text);
-                string PersonCode = listView2.SelectedItems.ToString();// ändrat denna //.SelectedItems[0].SubItems[1]
+                string PersonCode = listView2.SelectedItems[0].SubItems[1].Text;// ändrat denna //.SelectedItems[0].SubItems[1]
                 BusinessManager.RemoveAlumnusSendList(SendlistID, PersonCode);
                 ShowAlumnsAtMailinglist();
             }
