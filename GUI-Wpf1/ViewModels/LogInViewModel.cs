@@ -10,6 +10,7 @@ using BusinessEntity.CM_Interfaces;
 using System.Windows.Controls;
 using DataLayer.Repositories;
 using GUI_Wpf1.Views;
+using System.Runtime.Remoting.Services;
 
 namespace GUI_Wpf1.ViewModels
 {
@@ -74,6 +75,10 @@ namespace GUI_Wpf1.ViewModels
             Registration = new MainCommand(CreateUser);
         }
 
+        public LogInViewModel()
+        {
+            PersonCodeBox = "hej";
+        }
 
         private void Update()
         {

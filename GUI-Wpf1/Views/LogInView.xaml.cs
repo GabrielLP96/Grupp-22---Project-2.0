@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI_Wpf1.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace GUI_Wpf1
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new LogInViewModel(); 
         }
     }
 }
